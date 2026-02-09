@@ -1,0 +1,7 @@
+# Landing page served by Pages at /
+# /admin is handled by your existing Admin UI (or Worker routing)
+
+# If your Base44 admin is already hosted somewhere else, replace this with the correct destination.
+# For now we just allow /admin to resolve normally (no redirect).
+
+/admin/*  /admin/:splat  200

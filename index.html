@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nova65 Cloud — Governance, Usage, Billing</title>
+  <meta name="description" content="Nova65 Cloud adds governance, usage metering, rate limits, and billing to your Nova65 apps — with an admin dashboard." />
+
+  <style>
+    :root { color-scheme: light; }
+    body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background:#0b1220; color:#e5e7eb; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 48px 20px; }
+    .top { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    .brand { display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:0.2px; }
+    .logo { width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg,#6366f1,#a855f7); }
+    .btn { display:inline-flex; align-items:center; justify-content:center; border-radius:12px; padding:12px 16px; text-decoration:none; font-weight:600; }
+    .btn.primary { background:#6366f1; color:white; }
+    .btn.ghost { background:rgba(255,255,255,0.08); color:#e5e7eb; }
+    .hero { padding: 52px 0 24px; display:grid; grid-template-columns: 1.1fr 0.9fr; gap:24px; }
+    .card { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:18px; padding:18px; }
+    h1 { font-size:46px; line-height:1.05; margin:0 0 12px; }
+    p { color:#cbd5e1; margin:0 0 16px; font-size:16px; line-height:1.6; }
+    .grid { display:grid; grid-template-columns: repeat(3,1fr); gap:14px; margin-top:18px; }
+    .k { font-weight:700; margin-bottom:6px; }
+    .small { font-size:13px; color:#94a3b8; }
+    .ctaRow { display:flex; gap:12px; flex-wrap:wrap; margin-top:16px; }
+    .pill { display:inline-flex; gap:8px; align-items:center; border:1px solid rgba(255,255,255,0.12); padding:8px 10px; border-radius:999px; font-size:13px; color:#cbd5e1; }
+    code { background:rgba(255,255,255,0.08); padding:2px 6px; border-radius:6px; }
+    @media (max-width: 900px){ .hero{ grid-template-columns:1fr; } h1{ font-size:38px; } .grid{ grid-template-columns:1fr; } }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">
+        <div class="logo"></div>
+        <div>Nova65 Cloud</div>
+      </div>
+      <div class="ctaRow">
+        <a class="btn ghost" href="/admin">Open Admin</a>
+        <a class="btn primary" href="https://nova65.com">Build an App</a>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div>
+        <h1>Governance + Usage + Billing<br/>for your Nova65 apps</h1>
+        <p>
+          Nova65 Cloud gives you production-grade control: rate limits, usage metering, trust governance, billing status, and an admin dashboard.
+          Plug it into any Nova65 build and start charging customers.
+        </p>
+
+        <div class="ctaRow">
+          <a class="btn primary" href="/admin">Go to Admin Dashboard</a>
+          <a class="btn ghost" href="https://nova65.com">Convert URL → APK/AAB/iOS</a>
+        </div>
+
+        <div style="margin-top:14px;">
+          <span class="pill">✅ Worker API</span>
+          <span class="pill">✅ KV-backed governance</span>
+          <span class="pill">✅ Stripe-ready billing</span>
+          <span class="pill">✅ CORS fixed</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="k">Quickstart</div>
+        <p class="small">If you already have your admin key, open <code>/admin</code> and connect.</p>
+        <div class="small">
+          <div>Admin endpoint: <code>/admin/whoami</code></div>
+          <div>Keys list: <code>/admin/keys/list</code></div>
+          <div>Create key: <code>/admin/keys/create</code></div>
+          <div>Client billing: <code>/billing/status</code></div>
+        </div>
+        <hr style="border:none;border-top:1px solid rgba(255,255,255,0.10); margin:14px 0;">
+        <div class="k">Need access?</div>
+        <p class="small">Contact Nova65 Cloud to provision your tenant & admin key.</p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="k">Governance</div>
+        <p class="small">Trust Constitution rules for actions like <code>notification.send</code> — with capability contract checks.</p>
+      </div>
+      <div class="card">
+        <div class="k">Usage Metering</div>
+        <p class="small">Daily buckets per API key, month-to-date aggregation, forecasts, and limits.</p>
+      </div>
+      <div class="card">
+        <div class="k">Billing</div>
+        <p class="small">Plan configs, monthly invoices, export, and status panels for customers.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:22px;" class="small">
+      © <span id="y"></span> Nova65. All rights reserved.
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
