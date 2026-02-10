@@ -2,30 +2,227 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nova65 Cloud</title>
+  <title>Nova65 Cloud — Governance, Usage & Billing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Optional CSS -->
-  <link rel="stylesheet" href="styles.css" />
+  <style>
+    :root {
+      --bg: #0b0f1a;
+      --panel: #141a2e;
+      --border: #1f2640;
+      --text: #e6e9f2;
+      --muted: #b6bdd6;
+      --accent: #5b6cff;
+      --success: #27d17f;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    header, section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .cta-row {
+      margin-top: 30px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 14px 22px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    button.secondary {
+      background: transparent;
+      border: 1px solid var(--border);
+    }
+
+    /* Pricing */
+    .pricing-toggle {
+      margin-top: 20px;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 26px;
+      position: relative;
+    }
+
+    .card.popular {
+      border: 2px solid var(--accent);
+    }
+
+    .badge {
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: var(--accent);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+
+    .price {
+      font-size: 2.6rem;
+      margin: 12px 0;
+    }
+
+    ul {
+      padding-left: 18px;
+    }
+
+    li {
+      margin: 8px 0;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 40px 20px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+    }
+  </style>
 </head>
+
 <body>
 
-  <!-- HERO -->
-  <header>
-    <h1>Nova65 Cloud</h1>
-    <p>Governance + Usage + Billing for your Nova65 apps</p>
-    <button onclick="scrollToPricing()">View Pricing</button>
-  </header>
+<header>
+  <h1>Governance, Usage & Billing<br/>for Nova65 Apps</h1>
+  <p>
+    Nova65 Cloud turns converted apps into governed, auditable,
+    and monetisable software — without slowing you down.
+  </p>
 
-  <!-- PRICING TARGET -->
-  <section id="pricing"></section>
+  <div class="cta-row">
+    <button onclick="location.href='https://nova65.com'">Build an App</button>
+    <button class="secondary" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">
+      View Pricing
+    </button>
+  </div>
+</header>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2026 Nova65. All rights reserved.</p>
-  </footer>
+<section id="pricing">
+  <h2>Pricing (Worldwide — USD)</h2>
+  <p>
+    One Nova65 subscription. Governance is always present —
+    you unlock more assurance as you grow.
+  </p>
 
-  <!-- ✅ THIS IS CRITICAL -->
-  <script src="./index.js"></script>
+  <div class="pricing-grid">
+
+    <div class="card">
+      <h3>Build</h3>
+      <p>Conversion-first membership</p>
+      <div class="price">$29 / mo</div>
+      <ul>
+        <li>URL → APK / AAB + iOS ZIP builds</li>
+        <li>Build history & rebuilds</li>
+        <li>Basic app overview</li>
+        <li>API key issued</li>
+      </ul>
+      <button onclick="startCheckout('build')">Start with Build</button>
+    </div>
+
+    <div class="card popular">
+      <div class="badge">Most Popular</div>
+      <h3>Govern</h3>
+      <p>Assurance & visibility unlocked</p>
+      <div class="price">$99 / mo</div>
+      <ul>
+        <li>Everything in Build</li>
+        <li>Governance status & warnings</li>
+        <li>Usage metering dashboards</li>
+        <li>Key lifecycle controls</li>
+        <li>Billing & export visibility</li>
+      </ul>
+      <button onclick="startCheckout('govern')">Upgrade to Govern</button>
+    </div>
+
+    <div class="card">
+      <h3>Operate</h3>
+      <p>Enterprise-grade control plane</p>
+      <div class="price">From $499 / mo</div>
+      <ul>
+        <li>Full enforcement (AtlasGuard)</li>
+        <li>Intent Ledger audit access</li>
+        <li>Custom compliance modes</li>
+        <li>SLA & priority support</li>
+      </ul>
+      <button onclick="location.href='mailto:support@nova65.com?subject=Nova65%20Enterprise'">
+        Talk to Sales
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>Build-Only vs Governed Apps</h2>
+  <p>
+    You can use Nova65 purely as a build service —
+    or you can run a governed app with guarantees.
+  </p>
+
+  <ul>
+    <li><strong>Build-only:</strong> Fast conversion, minimal overhead, no enforcement</li>
+    <li><strong>Governed:</strong> Visibility, accountability, compliance & trust</li>
+  </ul>
+
+  <p>
+    Governance is never forced — it’s activated when you’re ready.
+  </p>
+</section>
+
+<footer>
+  © 2026 Nova65. Infrastructure for the next generation of software.
+</footer>
+
+<script>
+  function startCheckout(plan) {
+    alert("Stripe Checkout will be wired here for plan: " + plan);
+  }
+</script>
+
 </body>
 </html>
